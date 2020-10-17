@@ -1,6 +1,5 @@
 from django.db import models
 from .validators import price_validator
-from django.contrib.gis.db import models as gis_models
 
 
 class Store(models.Model):
@@ -12,7 +11,7 @@ class Store(models.Model):
             max_length=150, 
             null=False
     )
-    location = gis_models.PointField(srid=4326)
+    location = models.JSONField(null=True)
 
     class Meta:
         ordering = ['name']
