@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '+xm9k&#xtvpj+e9^4s4csz!+wijpr(b+4ltbg&cmg#-4jf5+9^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -101,6 +101,7 @@ if DEBUG:
     }
 else:
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_required=True)
+    DATABASES['default']['ENGINE'] = 'django.contrib.gis.db.backends.postgis'
 
 
 # Password validation
@@ -188,6 +189,8 @@ LOGGING = {
 
 
 SHELL_PLUS = 'ipython'
+
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
 
 
 django_heroku.settings(locals())
