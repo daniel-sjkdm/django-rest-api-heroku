@@ -13,20 +13,6 @@ class StoreSerializer(serializers.ModelSerializer):
         ]
 
 
-    def create(self, validated_data):
-        name = self.validated_data['name']
-        address = self.validated_data['address']
-        x, y = self.validated_data['location'].split(",")
-        location = Point(float(x), float(y))
-
-        return Store.objects.create(
-            name=name,
-            address=address,
-            location=location
-        )
-
-
-
 class InventorySerializer(serializers.ModelSerializer):
     store = serializers.SlugRelatedField(
         slug_field="name", 
