@@ -12,8 +12,6 @@ djangorestframework==3.12.1
 djangorestframework-simplejwt==4.4.0
 djoser==2.0.5
 gunicorn==20.0.4
-httpie==2.2.0
-httpie-image==1.0.0
 idna==2.10
 ipython==7.18.1
 ipython-genutils==0.2.0
