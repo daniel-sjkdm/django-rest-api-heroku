@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '+xm9k&#xtvpj+e9^4s4csz!+wijpr(b+4ltbg&cmg#-4jf5+9^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+LOCAL = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 DATABASES = {}
 
-if DEBUG:
+if LOCAL:
     from dotenv import load_dotenv
     load_dotenv()
 
